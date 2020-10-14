@@ -19,5 +19,22 @@ function generatePassword(){
   var lowerLetter = confirm ("Would you like your password to include lower case letters?");
   var numericCharacters = confirm ("Would you like your password to include numbers?");
   var specialCharacters = confirm ("Would you like your password to include special characters?");
-  return passwordLength + capitalLetter+lowerLetter+numericCharacters+specialCharacters;
+  return randomCapitalLetter()+randomLowerLetter()+randomNumericCharacters()+randomSpecialCharacters();
+}
+
+function randomCapitalLetter(){
+  return String.fromCharCode((Math.random()*26)+65);
+}
+
+function randomLowerLetter(){
+  return String.fromCharCode((Math.random()*26)+97);
+}
+
+function randomNumericCharacters(){
+  return String.fromCharCode((Math.random()*10)+48)
+}
+
+function randomSpecialCharacters(){
+  var specialCharacter = "!#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
+  return specialCharacter[Math.floor(Math.random()*specialCharacter.length)];
 }
