@@ -14,6 +14,10 @@ function writePassword() {
 generateBtn.addEventListener("click", writePassword);
 
 function generatePassword(){
-  var passwordLength = prompt ("How many characters would you like in your password"?);
-  return "Hello";
+  var passwordLength = prompt ("How many characters would you like in your password?");
+  var capitalLetter = confirm ("Would you like your password to include capital letters?");
+  var lowerLetter = confirm ("Would you like your password to include lower case letters?");
+  var numericCharacters = confirm ("Would you like your password to include numbers?");
+  var specialCharacters = confirm ("Would you like your password to include special characters?");
+  return passwordLength + capitalLetter+lowerLetter+numericCharacters+specialCharacters;
 }
