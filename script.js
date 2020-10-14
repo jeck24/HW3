@@ -19,7 +19,28 @@ function generatePassword(){
   var lowerLetter = confirm ("Would you like your password to include lower case letters?");
   var numericCharacters = confirm ("Would you like your password to include numbers?");
   var specialCharacters = confirm ("Would you like your password to include special characters?");
-  return randomCapitalLetter()+randomLowerLetter()+randomNumericCharacters()+randomSpecialCharacters();
+
+  const safePassword = {
+    capital : randomCapitalLetter(),
+    lower : randomLowerLetter(),
+    numeric : randomNumericCharacters(),
+    special : randomSpecialCharacters()
+  };
+
+  const characteristic = [{capitalLetter},{lowerLetter},{numericCharacters},{specialCharacters}].filter(item => Object.values(item)[0]);
+
+  var finalPassword = "";
+
+  for (var i=0; i<passwordLength;i++){
+    characteristic.forEach(type =>{
+      const funcName = Object.keys(type)[0];
+      finalPassword += safePassword[funcName]();
+    });
+  }
+
+  var password = finalPassword.slice(0,passwordLength);
+
+  return password;
 }
 
 function randomCapitalLetter(){
