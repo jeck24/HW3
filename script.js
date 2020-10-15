@@ -52,13 +52,31 @@ function generatePassword(){
     var specialCharacters = confirm ("Would you like your password to include special characters?");
   }
 
-  for (let i = 0; i < passwordLength; i++) {
-    //const element = array[i];
-    if (capitalLetter && lowerLetter && numericCharacters && specialCharacters){
-      var arrayPassword[randomCapitalLetter(), randomLowerLetter(), randomNumericCharacters(), randomSpecialCharacters()];
-    } 
+  if (capitalLetter && lowerLetter && numericCharacters && specialCharacters) {
+    for (var i = 0; i <= passwordLength; i++) {
+      //const element = array[index];
+      var arrayPassword = [randomCapitalLetter(), randomLowerLetter(), randomNumericCharacters(), randomSpecialCharacters()];
+      console.log(arrayPassword);
+      console.log[i];
+      console.log(passwordLength);
+      console.log(finalPassword = arrayPassword[i]);
+      finalPassword += arrayPassword[Math.floor(Math.random()*arrayPassword.length)];
+      console.log(finalPassword);
+      return finalPassword;
+    }
+  }
+
+  else if (capitalLetter && lowerLetter && numericCharacters && specialCharacters===false){
+
+    for (var i=0; i<=passwordLength;i++){
+      var arrayPassword = [randomCapitalLetter(), randomLowerLetter(), randomNumericCharacters()];
+      console.log(arrayPassword);
+      finalPassword += arrayPassword[Math.floor(Math.random()*arrayPassword.length)];
+      return finalPassword;
+    }
     
   }
+  
 
 
 
