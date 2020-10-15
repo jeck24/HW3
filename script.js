@@ -53,16 +53,18 @@ function generatePassword(){
   }
 
   if (capitalLetter && lowerLetter && numericCharacters && specialCharacters) {
-    for (var i = 0; i <= passwordLength; i++) {
+    for (var i = 0; i < passwordLength; i++) {
       //const element = array[index];
       var arrayPassword = [randomCapitalLetter(), randomLowerLetter(), randomNumericCharacters(), randomSpecialCharacters()];
-      console.log(arrayPassword);
+      var randomVar = Math.floor(Math.random()*arrayPassword.length);
+      console.log(randomVar);
+      console.log("array:" + arrayPassword);
       console.log[i];
+      console.log("Math random: "+Math.random());
       console.log(passwordLength);
-      console.log(finalPassword = arrayPassword[i]);
-      finalPassword += arrayPassword[Math.floor(Math.random()*arrayPassword.length)];
+      //console.log(finalParrayPassword[i]);
+      finalPassword = finalPassword + arrayPassword[randomVar];
       console.log(finalPassword);
-      return finalPassword;
     }
   }
 
@@ -76,6 +78,8 @@ function generatePassword(){
     }
     
   }
+
+  return finalPassword;
   
 
 
