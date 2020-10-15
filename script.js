@@ -52,40 +52,54 @@ function generatePassword(){
     var specialCharacters = confirm ("Would you like your password to include special characters?");
   }
 
+  for (let i = 0; i < passwordLength; i++) {
+    //const element = array[i];
+    if (capitalLetter && lowerLetter && numericCharacters && specialCharacters){
+      var arrayPassword[randomCapitalLetter(), randomLowerLetter(), randomNumericCharacters(), randomSpecialCharacters()];
+    } 
+    
+  }
+
+
+
+
+
+
   
   //This part is defining the characteristics of the password
-  var safePassword = {
-    capitalLetter : randomCapitalLetter(),
-    lower : randomLowerLetter(),
-    number : randomNumericCharacters(),
-    special : randomSpecialCharacters()
-  };
+  // var safePassword = {
+  //   capitalLetter : randomCapitalLetter(),
+  //   lower : randomLowerLetter(),
+  //   number : randomNumericCharacters(),
+  //   special : randomSpecialCharacters()
+  // };
 
-  generateBtn.addEventListener("click", () =>{
-    var length =+ passwordLength.value;
-    var capital = capitalLetter.confirmed;
-    var lower = lowerLetter.confirmed;
-    var number = numericCharacters.confirmed;
-    var special = specialCharacters.confirmed;
+  //generateBtn.addEventListener("click", () =>{
+    // var length =+ passwordLength.value;
+    // var capital = capitalLetter;
+    //var lower = lowerLetter;
+    //var number = numericCharacters;
+    //var special = specialCharacters;
+    //console.log(lowerLetter);
+  //   finalPassword.innerText = generatePasswordInternal(capitalLetter, lowerLetter, numericCharacters, specialCharacters, passwordLength);
+  // //});
 
-    finalPassword.innerText = generatePasswordInternal(capital, lower, number, special, length);
-  });
+  // function generatePasswordInternal(capital, lower, number, special, length){
+  //   var generatedPassword="";
+  //   var passwordArray = [{capital},{lower},{number},{special}].filter(item => Object.values(item)[0]);
+  //   console.log(passwordArray);
 
-  function generatePasswordInternal(capital, lower, number, special, length){
-    var generatedPassword="";
-    var passwordArray = [{capital},{lower},{number},{special}].filter(item => Object.values(item)[0]);
+  //   for (var i=0; i<passwordLength; i++){
+  //     passwordArray.forEach(type=>{
+  //       var funcName = Object.keys(type)[0];
+  //       generatedPassword += safePassword[funcName]();
+  //     });
+  //   }
 
-    for (var i=0; i<passwordLength; i++){
-      passwordArray.forEach(type=>{
-        var funcName = Object.keys(type)[0];
-        generatedPassword += safePassword[funcName]();
-      });
-    }
+  //   finalPassword = generatedPassword.slice(0, length);
 
-    finalPassword = generatedPassword.slice(0, length);
-
-    return finalPassword;
-  }
+    //return finalPassword;
+  //}
   
 }
 
