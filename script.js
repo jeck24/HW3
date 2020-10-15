@@ -17,6 +17,7 @@ generateBtn.addEventListener("click", writePassword);
 //The homework starts here
 function generatePassword(){
 
+  //This part is the randomizer for the capital letter
   function randomCapitalLetter(){
     return String.fromCharCode((Math.random()*26)+65);
   }
@@ -40,25 +41,39 @@ function generatePassword(){
   //This part is gathering the password's characteristics from the user
   var finalPassword = "";
   var passwordLength = prompt ("How many characters would you like in your password?");
-  var capitalLetter = confirm ("Would you like your password to include capital letters?");
-  var lowerLetter = confirm ("Would you like your password to include lower case letters?");
-  var numericCharacters = confirm ("Would you like your password to include numbers?");
-  var specialCharacters = confirm ("Would you like your password to include special characters?");
+  if (passwordLength<8 || passwordLength>127){
+    alert("Your password needs to have more than 7 and less than 128 characters");
+  }
 
-  //This part is the randomizer for the capital letter
+  else{
+    var capitalLetter = confirm ("Would you like your password to include capital letters?");
+    var lowerLetter = confirm ("Would you like your password to include lower case letters?");
+    var numericCharacters = confirm ("Would you like your password to include numbers?");
+    var specialCharacters = confirm ("Would you like your password to include special characters?");
+  }
 
   
   //This part is defining the characteristics of the password
   var safePassword = {
     capitalLetter : randomCapitalLetter(),
-    lowerLetter : randomLowerLetter(),
-    numericCharacters : randomNumericCharacters(),
-    specialCharacters : randomSpecialCharacters()
+    lower : randomLowerLetter(),
+    number : randomNumericCharacters(),
+    special : randomSpecialCharacters()
   };
 
-  function generatePassworkInternal(capitalLetter,lowerLetter,numericCharacters,specialCharacters,passwordLength){
+  generateBtn.addEventListener("click", () =>{
+    var length =+ passwordLength.value;
+    var capital = capitalLetter.confirmed;
+    var lower = lowerLetter.confirmed;
+    var number = numericCharacters.confirmed;
+    var special = specialCharacters.confirmed;
+
+    finalPassword.innerText = generatePasswordInternal(capital, lower, number, special, length);
+  });
+
+  function generatePasswordInternal(capital, lower, number, special, length){
     var generatedPassword="";
-    var passwordArray = [{capitalLetter},{lowerLetter},{numericCharacters},{specialCharacters}].filter(item => Object.values(item)[0]);
+    var passwordArray = [{capital},{lower},{number},{special}].filter(item => Object.values(item)[0]);
 
     for (var i=0; i<passwordLength; i++){
       passwordArray.forEach(type=>{
