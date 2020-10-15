@@ -139,51 +139,48 @@ function generatePassword(){
       finalPassword = finalPassword + arrayPassword[randomVar];
     }
   }
+
+  else if (capitalLetter && lowerLetter===false && numericCharacters===false && specialCharacters===false) {
+    for (var i = 0; i < passwordLength; i++) {
+      var arrayPassword = [randomCapitalLetter()];
+      var randomVar = Math.floor(Math.random()*arrayPassword.length);
+      finalPassword = finalPassword + arrayPassword[randomVar];
+    }
+  }
+
+  else if (capitalLetter===false && lowerLetter && numericCharacters===false && specialCharacters===false) {
+    for (var i = 0; i < passwordLength; i++) {
+      var arrayPassword = [randomLowerLetter()];
+      var randomVar = Math.floor(Math.random()*arrayPassword.length);
+      finalPassword = finalPassword + arrayPassword[randomVar];
+    }
+  }
+
+  else if (capitalLetter===false && lowerLetter===false && numericCharacters && specialCharacters===false) {
+    for (var i = 0; i < passwordLength; i++) {
+      var arrayPassword = [randomNumericCharacters()];
+      var randomVar = Math.floor(Math.random()*arrayPassword.length);
+      finalPassword = finalPassword + arrayPassword[randomVar];
+    }
+  }
+
+  else if (capitalLetter===false && lowerLetter===false && numericCharacters===false && specialCharacters) {
+    for (var i = 0; i < passwordLength; i++) {
+      var arrayPassword = [randomSpecialCharacters()];
+      var randomVar = Math.floor(Math.random()*arrayPassword.length);
+      finalPassword = finalPassword + arrayPassword[randomVar];
+    }
+  }
+
+  else{
+    finalPassword="Please comply with all requirements: from 8 to 127 characters and add at least 1 type of character";
+  }
+
+
   
 
   return finalPassword;
   
-
-
-
-
-
-
-  
-  //This part is defining the characteristics of the password
-  // var safePassword = {
-  //   capitalLetter : randomCapitalLetter(),
-  //   lower : randomLowerLetter(),
-  //   number : randomNumericCharacters(),
-  //   special : randomSpecialCharacters()
-  // };
-
-  //generateBtn.addEventListener("click", () =>{
-    // var length =+ passwordLength.value;
-    // var capital = capitalLetter;
-    //var lower = lowerLetter;
-    //var number = numericCharacters;
-    //var special = specialCharacters;
-    //console.log(lowerLetter);
-  //   finalPassword.innerText = generatePasswordInternal(capitalLetter, lowerLetter, numericCharacters, specialCharacters, passwordLength);
-  // //});
-
-  // function generatePasswordInternal(capital, lower, number, special, length){
-  //   var generatedPassword="";
-  //   var passwordArray = [{capital},{lower},{number},{special}].filter(item => Object.values(item)[0]);
-  //   console.log(passwordArray);
-
-  //   for (var i=0; i<passwordLength; i++){
-  //     passwordArray.forEach(type=>{
-  //       var funcName = Object.keys(type)[0];
-  //       generatedPassword += safePassword[funcName]();
-  //     });
-  //   }
-
-  //   finalPassword = generatedPassword.slice(0, length);
-
-    //return finalPassword;
-  //}
   
 }
 
