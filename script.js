@@ -56,20 +56,22 @@ function generatePassword(){
     specialCharacters : randomSpecialCharacters()
   };
 
-  //not understanding
-  var characteristic = [{capitalLetter},{lowerLetter},{numericCharacters},{specialCharacters}].filter(item => Object.values(item)[0]);
+  function generatePassworkInternal(capitalLetter,lowerLetter,numericCharacters,specialCharacters,passwordLength){
+    var generatedPassword="";
+    var passwordArray = [{capitalLetter},{lowerLetter},{numericCharacters},{specialCharacters}].filter(item => Object.values(item)[0]);
 
+    for (var i=0; i<passwordLength; i++){
+      passwordArray.forEach(type=>{
+        var funcName = Object.keys(type)[0];
+        generatedPassword += safePassword[funcName]();
+      });
+    }
 
-  for (var i=0; i<passwordLength;i++){
-    characteristic.forEach(type =>{
-      var funcName = Object.keys(type)[0];
-      finalPassword += safePassword[funcName]();
-    });
+    finalPassword = generatedPassword.slice(0, length);
+
+    return finalPassword;
   }
-
-  var password = finalPassword.slice(0,passwordLength);
-
-  return password;
+  
 }
 
 
