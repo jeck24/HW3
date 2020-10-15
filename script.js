@@ -54,30 +54,92 @@ function generatePassword(){
 
   if (capitalLetter && lowerLetter && numericCharacters && specialCharacters) {
     for (var i = 0; i < passwordLength; i++) {
-      //const element = array[index];
       var arrayPassword = [randomCapitalLetter(), randomLowerLetter(), randomNumericCharacters(), randomSpecialCharacters()];
       var randomVar = Math.floor(Math.random()*arrayPassword.length);
-      console.log(randomVar);
-      console.log("array:" + arrayPassword);
-      console.log[i];
-      console.log("Math random: "+Math.random());
-      console.log(passwordLength);
-      //console.log(finalParrayPassword[i]);
       finalPassword = finalPassword + arrayPassword[randomVar];
-      console.log(finalPassword);
     }
   }
 
   else if (capitalLetter && lowerLetter && numericCharacters && specialCharacters===false){
-
-    for (var i=0; i<=passwordLength;i++){
+    for (var i = 0; i < passwordLength; i++) {
       var arrayPassword = [randomCapitalLetter(), randomLowerLetter(), randomNumericCharacters()];
-      console.log(arrayPassword);
-      finalPassword += arrayPassword[Math.floor(Math.random()*arrayPassword.length)];
-      return finalPassword;
+      var randomVar = Math.floor(Math.random()*arrayPassword.length);
+      finalPassword = finalPassword + arrayPassword[randomVar];
     }
-    
   }
+
+  else if (capitalLetter && lowerLetter && numericCharacters===false && specialCharacters){
+    for (var i = 0; i < passwordLength; i++) {
+      var arrayPassword = [randomCapitalLetter(), randomLowerLetter(), randomSpecialCharacters()];
+      var randomVar = Math.floor(Math.random()*arrayPassword.length);
+      finalPassword = finalPassword + arrayPassword[randomVar];
+    }
+  }
+
+  else if (capitalLetter && lowerLetter===false && numericCharacters && specialCharacters) {
+    for (var i = 0; i < passwordLength; i++) {
+      var arrayPassword = [randomCapitalLetter(), randomNumericCharacters(), randomSpecialCharacters()];
+      var randomVar = Math.floor(Math.random()*arrayPassword.length);
+      finalPassword = finalPassword + arrayPassword[randomVar];
+    }
+  }
+
+  else if (capitalLetter===false && lowerLetter && numericCharacters && specialCharacters) {
+    for (var i = 0; i < passwordLength; i++) {
+      var arrayPassword = [randomLowerLetter(), randomNumericCharacters(), randomSpecialCharacters()];
+      var randomVar = Math.floor(Math.random()*arrayPassword.length);
+      finalPassword = finalPassword + arrayPassword[randomVar];
+    }
+  }
+
+  else if (capitalLetter && lowerLetter && numericCharacters===false && specialCharacters===false) {
+    for (var i = 0; i < passwordLength; i++) {
+      var arrayPassword = [randomCapitalLetter(), randomLowerLetter()];
+      var randomVar = Math.floor(Math.random()*arrayPassword.length);
+      finalPassword = finalPassword + arrayPassword[randomVar];
+    }
+  }
+
+  else if (capitalLetter && lowerLetter===false && numericCharacters && specialCharacters===false) {
+    for (var i = 0; i < passwordLength; i++) {
+      var arrayPassword = [randomCapitalLetter(), randomNumericCharacters()];
+      var randomVar = Math.floor(Math.random()*arrayPassword.length);
+      finalPassword = finalPassword + arrayPassword[randomVar];
+    }
+  }
+
+  else if (capitalLetter===false && lowerLetter && numericCharacters && specialCharacters===false) {
+    for (var i = 0; i < passwordLength; i++) {
+      var arrayPassword = [randomLowerLetter(), randomNumericCharacters()];
+      var randomVar = Math.floor(Math.random()*arrayPassword.length);
+      finalPassword = finalPassword + arrayPassword[randomVar];
+    }
+  }
+
+  else if (capitalLetter && lowerLetter===false && numericCharacters===false && specialCharacters) {
+    for (var i = 0; i < passwordLength; i++) {
+      var arrayPassword = [randomCapitalLetter(), randomSpecialCharacters()];
+      var randomVar = Math.floor(Math.random()*arrayPassword.length);
+      finalPassword = finalPassword + arrayPassword[randomVar];
+    }
+  }
+
+  else if (capitalLetter===false && lowerLetter && numericCharacters===false && specialCharacters) {
+    for (var i = 0; i < passwordLength; i++) {
+      var arrayPassword = [randomLowerLetter(), randomSpecialCharacters()];
+      var randomVar = Math.floor(Math.random()*arrayPassword.length);
+      finalPassword = finalPassword + arrayPassword[randomVar];
+    }
+  }
+
+  else if (capitalLetter===false && lowerLetter===false && numericCharacters && specialCharacters) {
+    for (var i = 0; i < passwordLength; i++) {
+      var arrayPassword = [randomNumericCharacters(), randomSpecialCharacters()];
+      var randomVar = Math.floor(Math.random()*arrayPassword.length);
+      finalPassword = finalPassword + arrayPassword[randomVar];
+    }
+  }
+  
 
   return finalPassword;
   
